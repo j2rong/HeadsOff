@@ -23,8 +23,8 @@
 ##屏幕截图 (Screenshots)
 
 <p align="center">
-<img src="https://github.com/j2rong/HeadsOff/blob/master/screenshot/0.2.28/screener_20160228(13_21_36).png" width="200"></a>
-<img src="https://github.com/j2rong/HeadsOff/blob/master/screenshot/0.2.28/screener_20160228(13_21_19).png" width="200"></a>
+<img src="https://github.com/j2rong/HeadsOff/blob/master/screenshot/0.2.28/screener_20160228(13_21_36).png" width="300"></a>
+<img src="https://github.com/j2rong/HeadsOff/blob/master/screenshot/0.2.28/screener_20160228(13_21_19).png" width="300"></a>
 </p>
 <br/>
 
