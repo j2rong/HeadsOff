@@ -40,6 +40,16 @@
 
 ##更新日志 (Changelogs)
 
+- **0.3.34**
+ 
+  ```
+  修正当更改是否显示系统应用选项后，列表不进行对应更新的Bug    
+  修正部分情况下设置窗口返回时不更新列表的Bug     
+  修正一个可能导致出现未知行为的Bug     
+  减小APK的大小     
+  ```
+
+
 - **0.2.28**
 
   ```
@@ -108,6 +118,15 @@
 <br/>
 
 - **Changelog**
+
+  - **0.3.34**
+
+    ```
+    Fix a bug that list does not update accordingly whether or not show system app is enabled     
+    Fix a bug that list does not refresh when return from settings     
+    Fix a bug that may cause unexpected behavior         
+    Reduce APK size   
+    ```
 
   - **0.2.28**
 
