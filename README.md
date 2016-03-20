@@ -1,6 +1,6 @@
 #HeadsOff
 
-- English description please refer to [here](https://github.com/j2rong/HeadsOff#English).
+- English description please refer to [here](https://github.com/j2rong/HeadsOff#english).
 
 <br/>
 
@@ -16,15 +16,16 @@
 
 
 - 禁用选定应用的悬挂式通知
-- 实验性功能：全局禁用
+- 全局禁用
+- 白名单，放行符合条件的悬挂式通知
 
 <br/>
 
 ##屏幕截图 (Screenshots)
 
 <p align="center">
-<img src="https://github.com/j2rong/HeadsOff/blob/master/screenshot/0.2.28/screener_20160228(13_21_36).png" width="200"></a>
-<img src="https://github.com/j2rong/HeadsOff/blob/master/screenshot/0.2.28/screener_20160228(13_21_19).png" width="200"></a>
+<img src="https://github.com/j2rong/HeadsOff/blob/master/screenshot/0.2.28/screener_20160228(13_21_36).png" width="300"></a>
+<img src="https://github.com/j2rong/HeadsOff/blob/master/screenshot/0.2.28/screener_20160228(13_21_19).png" width="300"></a>
 </p>
 <br/>
 
@@ -39,6 +40,25 @@
 <br/>
 
 ##更新日志 (Changelogs)
+
+- **0.4.51**
+
+  ```
+  添加日志开关      
+  增加白名单，符合条件的通知将不会被屏蔽      
+  执行效率优化      
+  ```
+
+
+- **0.3.34**
+
+  ```
+  修正当更改是否显示系统应用选项后，列表不进行对应更新的Bug    
+  修正部分情况下设置窗口返回时不更新列表的Bug     
+  修正一个可能导致出现未知行为的Bug     
+  减小APK的大小     
+  ```
+
 
 - **0.2.28**
 
@@ -57,14 +77,13 @@
 
 ##下载地址 (Downloads)
 
-- [HeadsOff v0.2.28](https://github.com/j2rong/HeadsOff/releases/download/v0.2.28/HeadsOff_v0.2.28.61_2016-02-28.apk)
-- [HeadsOff v0.2.28 with log enabled](https://github.com/j2rong/HeadsOff/releases/download/v0.2.28/HeadsOff_v0.2.28.65_log_2016-02-28.apk)
+- [HeadsOff v0.4.51](https://github.com/j2rong/HeadsOff/releases/download/v0.4.51/HeadsOff_v0.4.51.177_2016-03-20.apk)
 
 <br/>
 
 ##问题
 
-- 如使用过程中出现问题，请安装[带Log版本](https://github.com/j2rong/HeadsOff/releases/download/v0.2.28/HeadsOff_v0.2.28.65_log_2016-02-28.apk)并将Xposed Installer中的日志提交至[此处](https://github.com/j2rong/HeadsOff/issues/new)。
+- 如使用过程中出现问题，请在模块中打开日志，并将Xposed Installer中的日志提交至[此处](https://github.com/j2rong/HeadsOff/issues/new)。
 
 <br/>
 
@@ -72,16 +91,16 @@
 
 - [**Xposed Framework**](https://github.com/rovo89/Xposed)
 
-  Original work Copyright (c) 2005-2008, The Android Open Source Project
-  Modified work Copyright (c) 2013, rovo89 and Tungstwenty
+  Original work Copyright (c) 2005-2008, The Android Open Source Project    
+  Modified work Copyright (c) 2013, rovo89 and Tungstwenty    
 
-  Licensed under the Apache License, Version 2.0 (the "License");
-  you may not use this file except in compliance with the License.
+  Licensed under the Apache License, Version 2.0 (the "License");    
+  you may not use this file except in compliance with the License.    
 
-  Unless required by applicable law or agreed to in writing, software
-  distributed under the License is distributed on an "AS IS" BASIS,
-  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  See the License for the specific language governing permissions and
+  Unless required by applicable law or agreed to in writing, software   
+  distributed under the License is distributed on an "AS IS" BASIS,   
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   
+  See the License for the specific language governing permissions and   
   limitations under the License.
 
 <br/>
@@ -96,7 +115,9 @@
 
   - Disable heads-up notifications posted by the selected apps;
 
-  - **Experimental:** Disable all heads-up
+  - Disable all heads-up
+
+  - White list, notifications match the rules will not be filtered
 
 <br/>
 
@@ -109,6 +130,22 @@
 
 - **Changelog**
 
+  - **0.4.51**
+    ```
+	Add a log switch      
+    White list, notifications match the rules will not be filtered      
+    Optimize efficiency
+    ```
+
+  - **0.3.34**
+
+    ```
+    Fix a bug that list does not update accordingly whether or not show system app is enabled     
+    Fix a bug that list does not refresh when return from settings     
+    Fix a bug that may cause unexpected behavior         
+    Reduce APK size   
+    ```
+
   - **0.2.28**
 
     ```
@@ -119,4 +156,4 @@
 
 - **Problems**
 
-  Feel free to [open an issue](https://github.com/j2rong/HeadsOff/issues/new) if there is any problem. You can install [HeadsOff with log enabled build](https://github.com/j2rong/HeadsOff/releases/download/v0.2.28/HeadsOff_v0.2.28.65_log_2016-02-28.apk) and submit the logs (you can find it in Xposed Installer) to help identify the issue.
+  Feel free to [open an issue](https://github.com/j2rong/HeadsOff/issues/new) if there is any problem. You can turn on the logs and submit (you can find it in Xposed Installer) to help identify the issue.
