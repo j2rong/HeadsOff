@@ -22,8 +22,9 @@
 ##屏幕截图 (Screenshots)
 
 <p align="center">
-<img src="https://github.com/j2rong/HeadsOff/blob/master/screenshot/0.2.28/screener_20160228(13_21_36).png" width="300"></a>
-<img src="https://github.com/j2rong/HeadsOff/blob/master/screenshot/0.2.28/screener_20160228(13_21_19).png" width="300"></a>
+<img src="https://github.com/j2rong/HeadsOff/blob/master/screenshot/0.4.46/Screenshot_2016-03-20-23-02-17.png" width="300"></a>
+<img src="https://github.com/j2rong/HeadsOff/blob/master/screenshot/0.4.46/Screenshot_2016-03-20-23-02-42.png" width="300"></a>
+<img src="https://github.com/j2rong/HeadsOff/blob/master/screenshot/0.4.46/Screenshot_2016-03-20-23-02-02.png" width="300"></a>
 </p>
 <br/>
 
@@ -88,18 +89,18 @@
 ##致谢 (Acknowledgements)
 
 - [**Xposed Framework**](https://github.com/rovo89/Xposed)
-  
+
   Original work Copyright (c) 2005-2008, The Android Open Source Project    
   Modified work Copyright (c) 2013, rovo89 and Tungstwenty    
-    
+
   Licensed under the Apache License, Version 2.0 (the "License");    
   you may not use this file except in compliance with the License.    
-   
+
   Unless required by applicable law or agreed to in writing, software   
   distributed under the License is distributed on an "AS IS" BASIS,   
   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   
   See the License for the specific language governing permissions and   
-  limitations under the License.   
+  limitations under the License.
 
 <br/>
 
@@ -130,7 +131,7 @@
 
   - **0.4.51**
     ```
-	Add a log switch      
+    Add a log switch      
     White list, notifications match the rules will not be filtered      
     Optimize efficiency
     ```
