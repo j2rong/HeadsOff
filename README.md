@@ -88,11 +88,6 @@
 
 <br/>
 
-##下载地址 (Downloads)
-
-- [HeadsOff v0.4.51](https://github.com/j2rong/HeadsOff/releases/download/v0.4.51/HeadsOff_v0.4.51.177_2016-03-20.apk)
-
-<br/>
 
 ##问题
 
