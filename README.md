@@ -6,7 +6,7 @@
 
 ##主要功能 (Features)
 
-这是一个**Xposed模块**，用于**禁用**选定应用的[悬挂式（Heads-up）通知](http://developer.android.com/guide/topics/ui/notifiers/notifications.html#Heads-up)。
+这是一个**Xposed模块**，用于**禁用**选定应用的[悬挂式（Heads-up）通知](http://developer.android.com/guide/topics/ui/notifiers/notifications.html#Heads-up)，支持白名单，可选择放行部分通知。
 
 ![Heads-up](http://developer.android.com/images/ui/notifications/heads-up.png)
 
@@ -39,6 +39,13 @@
 <br/>
 
 ##更新日志 (Changelogs)
+
+- **0.4.62**
+
+  ```
+  修复日志开关无效的Bug     
+  ```
+
 
 - **0.4.56**
 
@@ -136,9 +143,14 @@
 
 - **Changelog**
 
+  - **0.4.62**
+    ```
+	Bug fixes      
+	```
+
   - **0.4.56**
     ```
-    UI adjustment, no new features added
+    UI adjustment, no new features added    
     ```
 
   - **0.4.51**
