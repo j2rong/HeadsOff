@@ -127,7 +127,7 @@
 
 ##English
 
-- An **Xposed** module for disabling [heads-up notifications](http://developer.android.com/guide/topics/ui/notifiers/notifications.html#Heads-up) per app on Android 5.0 and above.
+- An **Xposed** module for disabling [heads-up notifications](http://developer.android.com/guide/topics/ui/notifiers/notifications.html#Heads-up) per app on Android 5.0 and above, support white list.
 
 <br/>
 
