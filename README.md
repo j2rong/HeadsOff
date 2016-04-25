@@ -8,7 +8,7 @@
 
 这是一个**Xposed模块**，用于**禁用**选定应用的[悬挂式（Heads-up）通知](http://developer.android.com/guide/topics/ui/notifiers/notifications.html#Heads-up)，支持白名单，可选择放行部分通知。
 
-![Heads-up](http://developer.android.com/images/ui/notifications/heads-up.png)
+![Heads-up notification](http://developer.android.com/images/ui/notifications/heads-up.png)
 
 部分应用（如：**微信WeChat**）滥用悬挂式通知且没有提供关闭选项，造成非常不良的用户体验，启用该模块后即可禁用同时不影响通知在状态栏、下拉列表中的显示。
 
@@ -40,6 +40,17 @@
 
 ##更新日志 (Changelogs)
 
+- **0.5.78**
+
+  ```
+  对非中文地区默认使用英文显示      
+  根据用户语言排序应用列表      
+  白名单：      
+    添加示例通知      
+    添加正则表达式测试      
+  ```
+
+  
 - **0.4.62**
 
   ```
@@ -91,7 +102,8 @@
 
 ##问题
 
-- 如使用过程中出现问题，请在模块中打开日志，并将Xposed Installer中的日志提交至[此处](https://github.com/j2rong/HeadsOff/issues/new)。
+- 如使用过程中出现问题或功能建议，请至[此处](https://github.com/j2rong/HeadsOff/issues/new)提交。
+- 如通知拦截出现问题，请在模块中打开日志，并将Xposed Installer中的日志提交至[此处](https://github.com/j2rong/HeadsOff/issues/new)。
 
 <br/>
 
@@ -138,10 +150,19 @@
 
 - **Changelog**
 
+  - **0.5.78**
+    ```
+    Make English as default language for non-Chinese speaking locale       
+    App list sorts by user's locale      
+    Improvements on white list:       
+        Add a notification example to demonstrate matching entries      
+        Add regular expression testing      
+    ```
+
   - **0.4.62**
     ```
 	Bug fixes      
-	```
+    ```
 
   - **0.4.56**
     ```
@@ -174,4 +195,5 @@
 
 - **Problems**
 
-  Feel free to [open an issue](https://github.com/j2rong/HeadsOff/issues/new) if there is any problem. You can turn on the logs and submit (you can find it in Xposed Installer) to help identify the issue.
+  Feel free to [open an issue](https://github.com/j2rong/HeadsOff/issues/new) if there is any problem or suggestion.      
+  If you are having problems of notifications filtering, you can turn on the logs and submit (you can find it in Xposed Installer) to help identify the issue.
