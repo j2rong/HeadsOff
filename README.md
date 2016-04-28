@@ -1,6 +1,7 @@
 #HeadsOff
 
 - English description please refer to [here](https://github.com/j2rong/HeadsOff#english).
+- Translations to other languages are welcomed, click [here](https://github.com/j2rong/HeadsOff#contributing) for details.
 
 <br/>
 
@@ -50,7 +51,7 @@
     添加正则表达式测试      
   ```
 
-  
+
 - **0.4.62**
 
   ```
@@ -161,7 +162,7 @@
 
   - **0.4.62**
     ```
-	Bug fixes      
+    Bug fixes      
     ```
 
   - **0.4.56**
@@ -197,19 +198,29 @@
 
   Feel free to [open an issue](https://github.com/j2rong/HeadsOff/issues/new) if there is any problem or suggestion.      
   If you are having problems of notifications filtering, you can turn on the logs and submit (you can find it in Xposed Installer) to help identify the issue.
-  
+
+<br/>
+
+## Contributing
+- Translations
+  - Translations to other languages are welcomed
+  - Check if the language is [supported by Android](http://stackoverflow.com/a/30028371/1680664) and find its locale
+  - Translate the strings in string.xml ([Chinese](https://github.com/j2rong/HeadsOff/blob/master/app/src/main/res/values/strings.xml) or [English](https://github.com/j2rong/HeadsOff/blob/master/app/src/main/res/values-en/strings.xml)) and ignore all the strings with ***translatable="false"*** 
+  - If you don't know how to create a pull request, you can comment with your translation here [issue#2](https://github.com/j2rong/HeadsOff/issues/2)
+  - If you know how to create a [pull request](https://help.github.com/articles/using-pull-requests/), create a locale folder (***value-xx...***) under [res](https://github.com/j2rong/HeadsOff/tree/master/app/src/main/res) and save your translation as ***string.xml*** in the folder
+
 <br/>
 
 ## License
 <br/>
    Copyright (c) 2016-2017, j2Rong     
-     
+​     
    Licensed under the Apache License, Version 2.0 (the "License");     
    you may not use this file except in compliance with the License.     
    You may obtain a copy of the License at     
-     
+​     
        http://www.apache.org/licenses/LICENSE-2.0     
-     
+
    Unless required by applicable law or agreed to in writing, software     
    distributed under the License is distributed on an "AS IS" BASIS,     
    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.     
