@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#F44336</color>
+    <color name="colorPrimaryDark">#D32F2F</color>
+    <color name="colorAccent">#03A9F4</color>
+    <color name="colorPrimaryLight">#FFCDD2</color>
+    <color name="colorPrimaryTextColor">#212121</color>
+    <color name="colorSecondaryTextColor">#727272</color>
+    <!--<color name="colorDividerColor">#B6B6B6</color>-->
+
+    <color name="swipe_refresh_progress_color_1">#03A9F4</color>
+    <color name="swipe_refresh_progress_color_2">#2196F3</color>
+    <color name="swipe_refresh_progress_color_3">#1976D2</color>
+
+    <color name="colorDefaultAppNameTextColor">@color/colorSecondaryTextColor</color>
+    <color name="colorHighlightAppNameTextColor">@color/colorAccent</color>
+
+</resources>

@@ -1,0 +1,54 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.2"
+
+    defaultConfig {
+        applicationId "com.rong.xposed.headsoff"
+        minSdkVersion 21
+        targetSdkVersion 23
+        versionCode get_version_code()
+        versionName get_version_name()
+        resConfigs "zh", "en"
+    }
+
+    buildTypes {
+        debug {
+            buildConfigField "boolean", "SHOW_LOG", "true"
+            versionNameSuffix "-debug"
+
+            minifyEnabled false
+            zipAlignEnabled false
+            shrinkResources false
+        }
+        release {
+            buildConfigField "boolean", "SHOW_LOG", "false"
+
+            zipAlignEnabled true
+            shrinkResources true
+
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:23.1.1'
+    compile 'com.android.support:design:23.1.1'
+    compile 'com.android.support:support-v4:23.1.1'
+	
+    provided files('lib/XposedBridgeApi-54.jar')
+}
+
+def get_version_code() {
+    return 56;
+}
+
+def get_version_name() {
+    return "0.4.56";
+}

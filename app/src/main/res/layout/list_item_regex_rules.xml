@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:minHeight="32dp"
+                android:layout_gravity="center_vertical">
+
+    <android.support.v7.widget.AppCompatImageButton
+        android:id="@+id/btn_delete"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="8dp"
+        android:scaleType="fitCenter"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_clear_white_24dp"
+        android:tint="@color/colorPrimary"
+        tools:ignore="ContentDescription"/>
+
+    <TextView
+        android:id="@+id/txt_rule"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toStartOf="@id/btn_delete"
+        android:layout_centerVertical="true"
+        android:maxLines="5"
+        android:textSize="16sp"
+        android:typeface="monospace"
+        tools:text=".*文本.*ability"/>
+
+</RelativeLayout>

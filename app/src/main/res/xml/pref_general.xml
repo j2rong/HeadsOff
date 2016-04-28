@@ -1,0 +1,74 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+                  xmlns:tools="http://schemas.android.com/tools">
+
+    <!--<PreferenceCategory android:title="@string/settings_cate_title_donate">-->
+        <!---->
+    <!--</PreferenceCategory>-->
+
+    <PreferenceCategory android:title="@string/settings_cate_title_general">
+
+        <SwitchPreference
+            android:key="pref_mod_active"
+            android:title="@string/settings_pref_title_mod_active"
+            android:defaultValue="false"
+            android:summaryOn="@string/settings_summary_on_mod_active"
+            android:summaryOff="@string/settings_summary_off_mod_active"/>
+
+        <com.rong.xposed.headsoff.widget.SwitchPreferenceMultiLine
+            android:key="pref_global_enable"
+            android:title="@string/settings_pref_title_global_enable"
+            android:summaryOn="@string/settings_summary_on_global_enable"
+            android:summaryOff="@string/settings_summary_off_global_enable"
+            android:defaultValue="false"
+            tools:defaultValue="true"/>
+
+        <SwitchPreference
+            android:key="pref_show_system_app"
+            android:title="@string/settings_pref_title_show_system_app"
+            android:defaultValue="false"
+            android:summaryOn="@string/settings_summary_on_show_system_app"
+            android:summaryOff="@string/settings_summary_off_show_system_app"/>
+
+        <SwitchPreference
+            android:key="pref_enable_log"
+            android:title="@string/settings_pref_title_enable_log"
+            android:defaultValue="false"
+            android:summaryOn="@string/settings_summary_on_enable_log"
+            android:summaryOff="@string/settings_summary_off_enable_log"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/settings_cate_title_thanks">
+
+        <Preference
+            android:key="pref_thanks_to_xposed"
+            android:title="@string/settings_pref_title_thanks_to_xposed"
+            android:summary="@string/settings_summary_thanks_to_xposed"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/settings_cate_title_about">
+
+        <Preference
+            android:key="pref_download"
+            android:title="@string/settings_pref_title_download"/>
+
+        <Preference
+            android:key="pref_author"
+            android:title="@string/settings_pref_title_author"
+            android:summary="@string/app_author"/>
+
+        <Preference
+            android:key="pref_version_name"
+            android:title="@string/settings_pref_title_version_name"
+            tools:summary="1.0.0.1"/>
+
+        <Preference
+            android:key="pref_copyright"
+            android:title="@string/settings_pref_title_copyright"
+            android:summary="@string/app_copyright"/>
+
+    </PreferenceCategory>
+
+
+</PreferenceScreen>

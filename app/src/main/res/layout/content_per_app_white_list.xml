@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="8dp"
+    android:paddingTop="8dp"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.rong.xposed.headsoff.PerAppWhiteList"
+    tools:showIn="@layout/activity_per_app_white_list">
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/edit_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="3dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="3dp"
+        android:textColorHint="@color/colorAccent">
+
+        <!--TextAppearance.Design.Hint-->
+        <!--app:hintTextAppearance="@style/TextLabel"-->
+        <android.support.v7.widget.AppCompatEditText
+            android:id="@+id/edit_regex"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/white_list_regex_hint"
+            android:selectAllOnFocus="true"
+            android:inputType="text|textNoSuggestions|textMultiLine"
+            android:textSize="18sp"
+            android:imeOptions="actionDone"
+            android:gravity="start"
+            android:backgroundTint="@color/colorAccent"
+            tools:text=".*文本.*"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/btn_add"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginEnd="16dp"
+        android:text="@string/white_list_add_rule"
+        tools:text="Add"
+        android:backgroundTint="@color/colorAccent"
+        android:textColor="@android:color/white"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:textColor="@color/colorAccent"
+        android:text="@string/white_list_regex_list"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/regex_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="5dp"
+        android:scrollbarStyle="outsideOverlay"
+        android:scrollbars="vertical"/>
+
+</LinearLayout>
