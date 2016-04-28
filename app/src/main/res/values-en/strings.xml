@@ -1,51 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+	
+	<!-- Leave your information here, it will be shown in the App -->
+	
+	
     <string name="app_name">HeadsOff</string>
-    <string name="title_activity_settings">Settings</string>
-    <string name="settings_cate_title_about">About</string>
-    <string name="settings_cate_title_donate">Experimental</string>
-    <string name="settings_cate_title_general">General</string>
+    <string name="app_description">Disable heads-up notifications</string>  <!-- show in Xposed Installer -->
+
+
+    <!-- Activity title -->
+    <string name="activity_title_settings">Settings</string>
+    <string name="activity_title_per_app_white_list">White list</string>
+    <string name="activity_title_translation_info">Translation</string>
+
+
+    <!-- Menu -->
     <string name="main_menu_settings">Settings</string>
-    <string name="app_copyright">© Copyright j2Rong, 2015–2016. All rights reserved.</string>
-    <string name="settings_cate_title_thanks">Acknowledgment</string>
-    <string name="settings_pref_title_thanks_to_xposed">Xposed Framework</string>
+    <string name="white_list_menu_help">How to Use?</string>
+
+
+    <!-- Settings (General) -->
+    <string name="settings_cate_title_general">General</string>
+
+    <string name="settings_pref_title_mod_status">Module Status</string>
+    <string name="settings_summary_on_mod_status">Enabled</string>
+    <string name="settings_summary_off_mod_status">Disabled</string>
+
+    <string name="settings_pref_title_global_switch">Filter All Apps</string>
+    <string name="settings_summary_off_global_switch">Filter heads-up notifications posted by selected apps only</string>
+    <string name="settings_summary_on_global_switch">Filter all heads-up notifications\n(Including system apps, don\'t apply white list)</string>
+
+    <string name="settings_pref_title_show_system_apps">System Apps</string>
+    <string name="settings_summary_on_show_system_apps">Show</string>
+    <string name="settings_summary_off_show_system_apps">Don\'t show</string>
+
+    <string name="settings_pref_title_enable_log">Log</string>
+    <string name="settings_summary_off_enable_log">Disabled</string>
+    <string name="settings_summary_on_enable_log">Enabled</string>
+
+
+    <!-- Settings (About) -->
+    <string name="settings_cate_title_about">About</string>
+
+    <string name="settings_pref_title_open_source_license">Open Source</string>
+    <string name="settings_pref_title_developer">Developer</string>
     <string name="settings_pref_title_version_name">Version</string>
     <string name="settings_pref_title_download">Download</string>
-    <string name="settings_pref_title_show_system_app">System Apps</string>
-    <string name="settings_summary_on_show_system_app">Show</string>
-    <string name="settings_summary_off_show_system_app">Do not show</string>
-    <string name="settings_pref_title_mod_active">Module Status</string>
-    <string name="settings_summary_on_mod_active">Enabled, filtering heads-up notifications</string>
-    <string name="settings_summary_off_mod_active">Disabled</string>
-    <string name="settings_pref_title_global_enable">Filter All Apps</string>
-    <string name="settings_summary_off_global_enable">Filter heads-up notifications posted by selected apps only</string>
-    <string name="settings_summary_on_global_enable">Filter all heads-up notifications\nIncluding system apps, do not apply white list</string>
-    <string name="app_description">Disable heads-up notifications</string>
-    <string name="settings_pref_title_author">Author</string>
-    <string name="settings_pref_title_copyright">Copyright</string>
-    <string name="title_activity_per_app_white_list">Whitelist</string>
-    <string name="white_list_add_rule">ADD</string>
-    <string name="white_list_regex_hint">Regular expression</string>
-    <string name="white_list_menu_help">How to use?</string>
-    <string name="white_list_invalid_regex_pattern">It seems that you make some mistakes?</string>
-    <string name="white_list_help_title_1">Matching Rules</string>
-    <string name="white_list_help_title">How to use?</string>
-    <string name="white_list_help_ok">OK</string>
-    <string name="white_list_add_empty">Write something first?</string>
-    <string name="white_list_add_exists_already">The same rule already exists!</string>
-    <string name="white_list_package_name_is_empty">Failed to get the package name, please try again!</string>
+
+
+    <!-- Settings (Acknowledgements) -->
+    <string name="settings_cate_title_ack">Acknowledgment</string>
+
+    <string name="settings_pref_title_ack_xposed">Xposed Framework</string>
+
+    <string name="settings_pref_title_ack_translation">Translation</string>
+    <string name="settings_summary_ack_translation">Show details</string>
+
+
+    <!-- Per App White List Settings -->
+    <string name="white_list_edit_regex_hint">Regular expression</string>
+    <string name="white_list_edit_test_hint">Testing string</string>
+    <string name="white_list_btn_add_rule">ADD</string>
     <string name="white_list_regex_list">Current Rules</string>
-    <string name="white_list_add_success">Added successfully</string>
+    <string name="white_list_regex_list_empty_hint">(No available rules)</string>
+
+
+    <!-- Regex test results -->
+    <string name="white_list_regex_test_empty_pattern">No regular expression?</string>
+    <string name="white_list_regex_test_invalid_pattern">Invalid regular expression ╮(╯-╰)╭</string>
+    <string name="white_list_regex_test_match">A match has been found!!!</string>
+    <string name="white_list_regex_test_not_match">Match fails</string>
+    <string name="white_list_regex_test_error_unknown">Unknown error</string>
+
+
+    <!-- Error string when open PerAppWhiteList Activity -->
+    <string name="white_list_package_name_is_empty">Failed to get the package name, please try again!</string>
+
+
+    <!-- Toast strings when Add clicked -->
+    <string name="white_list_invalid_regex_pattern">It seems that you made a mistake?</string>
     <string name="white_list_exceeded_limitation">Supports up to %1$d rules</string>
-    <string name="white_list_help_1_1">1. Notifications matching the rules will not be filtered;</string>
-    <string name="white_list_help_1_2">Match:</string>
-    <string name="white_list_help_1_3">Content title, Content text, Content info, Sub text</string>
-    <string name="white_list_help_1_4">2. No matches if notification is not a heads-up originally;</string>
-    <string name="white_list_help_1_3_1">Content title</string>
-    <string name="white_list_help_1_3_2">Content text</string>
-    <string name="white_list_help_1_3_3">Content info</string>
-    <string name="white_list_help_1_3_4">Sub text</string>
-    <string name="settings_pref_title_enable_log">Log</string>
-    <string name="settings_summary_off_enable_log">Disable</string>
-    <string name="settings_summary_on_enable_log">Enable</string>
+    <string name="white_list_add_success">Add successfully</string>
+    <string name="white_list_add_exists_already">The same rule already exists!</string>
+    <string name="white_list_add_empty_regex">Write something first?</string>
+
+
+    <!-- "How to Use" Dialog -->
+    <string name="white_list_help_btn_ok">OK</string>
+    <string name="white_list_help_btn_example">EXAMPLE</string>    <!-- Show a notification example -->
+
+    <string name="white_list_help_dot">·</string>
+    <string name="white_list_help_matching_rules">Matching Rules</string>
+    <string name="white_list_help_not_filtered_if_matching_rules">Notification matching the rules will not be filtered</string>
+    <string name="white_list_help_ignore_if_not_heads_up_originally">Notification which is not heads-up originally will be ignored</string>
+
+    <string name="white_list_help_matching_entries">Matching Entries</string>
+    <string name="white_list_help_content_title">Content title</string> <!-- The next 4 strings will also be used in notification example -->
+    <string name="white_list_help_content_text">Content text</string>
+    <string name="white_list_help_content_info">Content info</string>
+    <string name="white_list_help_sub_text">Sub text</string>
+
+
 </resources>

@@ -1,65 +1,90 @@
 <resources>
     <string name="app_name">HeadsOff</string>
-    <string name="app_copyright">© j2Rong版权所有，2016–2017。保留所有权利。</string>
     <string name="app_description">禁用悬挂式(Heads-up)通知</string>
-    <string name="app_author" translatable="false">j2Rong</string>
+    <string name="app_dev" translatable="false">j2Rong</string>
 
+    <!-- Activity title -->
     <string name="title_activity_main" translatable="false">@string/app_name</string>
-    <string name="title_activity_settings">设置</string>
-    <string name="title_activity_per_app_white_list">白名单</string>
+    <string name="activity_title_settings">设置</string>
+    <string name="activity_title_per_app_white_list">白名单</string>
+    <string name="activity_title_translation_info">翻译</string>
 
+    <!-- Menu -->
     <string name="main_menu_settings">设置</string>
+    <string name="white_list_menu_help">如何使用？</string>
 
-    <string name="settings_cate_title_donate">实验性</string>
+    <!-- Settings (General) -->
     <string name="settings_cate_title_general">通用</string>
-    <string name="settings_cate_title_about">关于</string>
-    <string name="settings_cate_title_thanks">致谢</string>
 
-    <string name="settings_pref_title_global_enable">开启全部过滤</string>
-    <string name="settings_pref_title_show_system_app">系统应用</string>
+    <string name="settings_pref_title_mod_status">当前状态</string>
+    <string name="settings_summary_on_mod_status">启用过滤</string>
+    <string name="settings_summary_off_mod_status">关闭过滤</string>
+
+    <string name="settings_pref_title_global_switch">开启全部过滤</string>
+    <string name="settings_summary_on_global_switch">禁用全部应用的Heads-Up通知\n（包含系统应用、不应用白名单）</string>
+    <string name="settings_summary_off_global_switch">只禁用选定应用的Heads-Up通知</string>
+
+    <string name="settings_pref_title_show_system_apps">系统应用</string>
+    <string name="settings_summary_on_show_system_apps">显示</string>
+    <string name="settings_summary_off_show_system_apps">不显示</string>
+
     <string name="settings_pref_title_enable_log">日志</string>
-    <string name="settings_pref_title_version_name">版本</string>
-    <string name="settings_pref_title_mod_active">当前状态</string>
-    <string name="settings_pref_title_download">下载地址</string>
-    <string name="settings_pref_title_author">作者</string>
-    <string name="settings_pref_title_copyright">版权</string>
-    <string name="settings_pref_title_thanks_to_xposed">Xposed框架</string>
-
-    <string name="settings_summary_thanks_to_xposed" translatable="false">rovo89, Tungstwenty</string>
-
-    <string name="settings_summary_on_global_enable">禁用全部应用的Heads-Up通知\n包含系统应用、不应用白名单</string>
-    <string name="settings_summary_off_global_enable">只禁用选定应用的Heads-Up通知</string>
-
-    <string name="settings_summary_on_show_system_app">显示</string>
-    <string name="settings_summary_off_show_system_app">不显示</string>
-
     <string name="settings_summary_on_enable_log">开启</string>
     <string name="settings_summary_off_enable_log">关闭</string>
 
-    <string name="settings_summary_on_mod_active">启用过滤</string>
-    <string name="settings_summary_off_mod_active">关闭过滤</string>
+    <!-- Settings (About) -->
+    <string name="settings_cate_title_about">关于</string>
 
-    <string name="white_list_menu_help">如何使用？</string>
-    <string name="white_list_regex_hint">正则表达式</string>
-    <string name="white_list_add_rule">添加</string>
+    <string name="settings_pref_title_open_source_license">开源许可</string>
+    <string name="settings_summary_open_source_license" translatable="false">Apache License 2.0\nCopyright © 2016–2017,&#160;&#160;j2Rong</string>
+    <string name="settings_pref_title_developer">作者</string>
+    <string name="settings_pref_title_version_name">版本</string>
+    <string name="settings_pref_title_download">下载地址</string>
+
+    <!-- Settings (Acknowledgements) -->
+    <string name="settings_cate_title_ack">致谢</string>
+
+    <string name="settings_pref_title_ack_xposed">Xposed框架</string>
+    <string name="settings_summary_ack_xposed" translatable="false">rovo89, Tungstwenty</string>
+    <string name="settings_pref_title_ack_translation">翻译</string>
+    <string name="settings_summary_ack_translation">点击查看</string>
+
+    <!-- Per App White List Settings -->
+    <string name="white_list_edit_regex_hint">正则表达式</string>
+    <string name="white_list_edit_test_hint">测试文本</string>
+    <string name="white_list_btn_add_rule">添加</string>
     <string name="white_list_regex_list">当前规则</string>
+    <string name="white_list_regex_list_empty_hint">（没有可用规则）</string>
+
+    <string name="white_list_regex_test_empty_pattern">没有正则表达式？</string>
+    <string name="white_list_regex_test_invalid_pattern">正则表达式出错了 ╮(╯-╰)╭</string>
+    <string name="white_list_regex_test_match">匹配成功！！！</string>
+    <string name="white_list_regex_test_not_match">匹配失败</string>
+    <string name="white_list_regex_test_error_unknown">未知错误</string>
+
     <string name="white_list_package_name_is_empty">应用包名称获取失败，请重试！</string>
+
     <string name="white_list_invalid_regex_pattern">好像哪里写错了？</string>
     <string name="white_list_exceeded_limitation">最多支持%1$d条规则</string>
     <string name="white_list_add_success">添加成功</string>
-    <string name="white_list_help_title">如何使用？</string>
-    <string name="white_list_help_ok">我知道了</string>
     <string name="white_list_add_exists_already">相同规则已存在！无需重复添加</string>
-    <string name="white_list_help_title_1">匹配规则</string>
-    <string name="white_list_help_1_1">1. 规则列表匹配成功的通知将不会被屏蔽；</string>
-    <string name="white_list_help_1_2">匹配内容：</string>
-    <string name="white_list_help_1_3_1">通知标题</string>
-    <string name="white_list_help_1_3_2">通知内容</string>
-    <string name="white_list_help_1_3_3">ContentInfo</string>
-    <string name="white_list_help_1_3_4">SubText</string>
-    <string name="white_list_help_1_3">通知标题、通知内容、ContentInfo、SubText</string>
-    <string name="white_list_help_1_4">2. 通知如不是Heads-up通知，将不会进行匹配；</string>
-    <string name="white_list_add_empty">先写点什么吧。。</string>
+    <string name="white_list_add_empty_regex">先写点什么吧。。</string>
+
+    <!-- How to Use Dialog -->
+    <string name="white_list_help_title" translatable="false">@string/white_list_menu_help</string>
+    <string name="white_list_help_btn_ok">我知道了</string>
+    <string name="white_list_help_btn_example">示例通知</string>
+
+    <string name="white_list_help_dot">·</string>
+    <string name="white_list_help_matching_rules">匹配规则</string>
+    <string name="white_list_help_not_filtered_if_matching_rules">匹配成功的通知将不会被屏蔽</string>
+    <string name="white_list_help_ignore_if_not_heads_up_originally">通知如不是Heads-up通知，将不会进行匹配</string>
+
+    <string name="white_list_help_matching_entries">匹配内容</string>
+    <string name="white_list_help_content_title">通知标题 (Title)</string>
+    <string name="white_list_help_content_text">通知内容 (Text)</string>
+    <string name="white_list_help_content_info">通知信息 (Info)</string>
+    <string name="white_list_help_sub_text">其他内容 (SubText)</string>
 
 
 </resources>
