@@ -23,9 +23,10 @@
 ##屏幕截图 (Screenshots)
 
 <p align="center">
-<img src="https://github.com/j2rong/HeadsOff/blob/master/screenshot/0.4.46/Screenshot_2016-03-20-23-02-17.png" width="216"></a>
-<img src="https://github.com/j2rong/HeadsOff/blob/master/screenshot/0.4.46/Screenshot_2016-03-20-23-02-42.png" width="216"></a>
-<img src="https://github.com/j2rong/HeadsOff/blob/master/screenshot/0.4.46/Screenshot_2016-03-20-23-02-02.png" width="216"></a>
+<img src="https://github.com/j2rong/HeadsOff/blob/master/screenshot/0.5.83/main-2016-05-04-134031.png" width="216"></a>
+<img src="https://github.com/j2rong/HeadsOff/blob/master/screenshot/0.5.83/settings-2016-05-04-143249.png" width="216"></a>
+<img src="https://github.com/j2rong/HeadsOff/blob/master/screenshot/0.5.83/white-list-2016-05-04-143309.png" width="216"></a>
+<img src="https://github.com/j2rong/HeadsOff/blob/master/screenshot/0.5.83/how-to-2016-05-04-143323.png" width="216"></a>
 </p>
 <br/>
 
