@@ -13,9 +13,20 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * HeadsOff
- * Created by Rong on 2016/2/25.
- */
+   Copyright (c) 2016-2017, j2Rong     
+     
+   Licensed under the Apache License, Version 2.0 (the "License");     
+   you may not use this file except in compliance with the License.     
+   You may obtain a copy of the License at     
+     
+       http://www.apache.org/licenses/LICENSE-2.0     
+     
+   Unless required by applicable law or agreed to in writing, software     
+   distributed under the License is distributed on an "AS IS" BASIS,     
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.     
+   See the License for the specific language governing permissions and     
+   limitations under the License.   
+*/
 public class AppUtils {
 
 	public static List<Map<String, Object>> getAppList(Context context, boolean bShowSystemApps) {
@@ -24,7 +35,7 @@ public class AppUtils {
 
 		List<Map<String, Object>> retList = new ArrayList<>();
 		if (apps == null) {
-			return retList;    //size = 0
+			return retList;
 		}
 
 		for (ApplicationInfo info : apps) {
@@ -38,7 +49,6 @@ public class AppUtils {
 			}
 		}
 
-		//sort
 		Collections.sort(retList, new Comparator<Map<String, Object>>() {
 
 			private Collator c = Collator.getInstance(java.util.Locale.CHINA);

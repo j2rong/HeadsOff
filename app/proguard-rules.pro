@@ -15,7 +15,3 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
-
-#Xposed
--keep class com.rong.xposed.headsoff.HeadsOff {*;}
--keepnames class com.rong.xposed.headsoff.HeadsOff

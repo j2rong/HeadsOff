@@ -11,10 +11,7 @@ import android.view.View;
 
 import com.rong.xposed.headsoff.R;
 
-/**
- * HeadsOff
- * Created by Rong on 2016/2/25.
- */
+
 public class PackageListItemDivider extends RecyclerView.ItemDecoration {
 
 	private static final int[] ATTRS = new int[]{
@@ -31,6 +28,7 @@ public class PackageListItemDivider extends RecyclerView.ItemDecoration {
 		a.recycle();
 	}
 
+
 	private int getOrientation(RecyclerView parent) {
 		if (mOrientation == -1) {
 			if (parent.getLayoutManager() instanceof LinearLayoutManager) {
@@ -44,6 +42,7 @@ public class PackageListItemDivider extends RecyclerView.ItemDecoration {
 		return mOrientation;
 	}
 
+
 	@Override
 	public void onDrawOver(Canvas c, RecyclerView parent, RecyclerView.State state) {
 		if (mDivider == null) {
@@ -51,7 +50,6 @@ public class PackageListItemDivider extends RecyclerView.ItemDecoration {
 			return;
 		}
 
-		// Initialization needed to avoid compiler warning
 		int left = 0, right = 0, top = 0, bottom = 0, size;
 		int orientation = mOrientation != -1 ? mOrientation : getOrientation(parent);
 		int childCount = parent.getChildCount();
@@ -60,7 +58,7 @@ public class PackageListItemDivider extends RecyclerView.ItemDecoration {
 			size = mDivider.getIntrinsicHeight();
 			left = parent.getPaddingLeft();
 			right = parent.getWidth() - parent.getPaddingRight();
-		} else { //horizontal
+		} else { 
 			size = mDivider.getIntrinsicWidth();
 			top = parent.getPaddingTop();
 			bottom = parent.getHeight() - parent.getPaddingBottom();
@@ -73,7 +71,7 @@ public class PackageListItemDivider extends RecyclerView.ItemDecoration {
 			if (orientation == LinearLayoutManager.VERTICAL) {
 				top = child.getTop() - params.topMargin - size;
 				bottom = top + size;
-			} else { //horizontal
+			} else { 
 				left = child.getLeft() - params.leftMargin;
 				right = left + size;
 			}

@@ -39,6 +39,21 @@ import java.util.Set;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 
+/**
+   Copyright (c) 2016-2017, j2Rong     
+     
+   Licensed under the Apache License, Version 2.0 (the "License");     
+   you may not use this file except in compliance with the License.     
+   You may obtain a copy of the License at     
+     
+       http://www.apache.org/licenses/LICENSE-2.0     
+     
+   Unless required by applicable law or agreed to in writing, software     
+   distributed under the License is distributed on an "AS IS" BASIS,     
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.     
+   See the License for the specific language governing permissions and     
+   limitations under the License.   
+*/
 public class PerAppWhiteList extends AppCompatActivity implements
 		View.OnClickListener, WhiteListAdapter.OnRegexRemoveListener, TextView.OnEditorActionListener {
 
@@ -147,13 +162,11 @@ public class PerAppWhiteList extends AppCompatActivity implements
 					mAdapter.notifyDataSetChanged();
 					Toast.makeText(this, R.string.white_list_add_success, Toast.LENGTH_LONG).show();
 				} else {
-					// hit limit
 					Toast.makeText(this,
 							getString(R.string.white_list_exceeded_limitation, SettingValues.WHITE_LIST_MAX),
 							Toast.LENGTH_LONG).show();
 				}
 			} else {
-				// invalid regex pattern
 				Toast.makeText(this, R.string.white_list_invalid_regex_pattern, Toast.LENGTH_LONG).show();
 				edtRegex.requestFocus();
 			}
@@ -166,6 +179,7 @@ public class PerAppWhiteList extends AppCompatActivity implements
 
 	@Override
 	public void onRegexRemove(int position) {
+
 	}
 
 	@SuppressWarnings("ResultOfMethodCallIgnored")
@@ -199,7 +213,6 @@ public class PerAppWhiteList extends AppCompatActivity implements
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.menu_per_app_white_list, menu);
 		return true;
 	}
@@ -257,8 +270,6 @@ public class PerAppWhiteList extends AppCompatActivity implements
 	public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
 		boolean handled = false;
 
-		// Some phones disregard the IME setting option in the xml, instead
-		// they send IME_ACTION_UNSPECIFIED so we need to catch that
 		if(EditorInfo.IME_ACTION_DONE == actionId || EditorInfo.IME_ACTION_UNSPECIFIED == actionId)
 		{
 			onClick(btnAdd);

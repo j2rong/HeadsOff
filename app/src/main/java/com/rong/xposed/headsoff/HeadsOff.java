@@ -1,18 +1,3 @@
-/**
-   Copyright (c) 2016-2017, j2Rong     
-     
-   Licensed under the Apache License, Version 2.0 (the "License");     
-   you may not use this file except in compliance with the License.     
-   You may obtain a copy of the License at     
-     
-       http://www.apache.org/licenses/LICENSE-2.0     
-     
-   Unless required by applicable law or agreed to in writing, software     
-   distributed under the License is distributed on an "AS IS" BASIS,     
-   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.     
-   See the License for the specific language governing permissions and     
-   limitations under the License.   
-*/
 package com.rong.xposed.headsoff;
 
 import android.app.Notification;
@@ -39,12 +24,23 @@ import de.robv.android.xposed.XposedHelpers;
 import de.robv.android.xposed.callbacks.XC_LoadPackage;
 
 /**
- * HeadsOff
- * Created by Rong on 2016/2/25.
- */
+   Copyright (c) 2016-2017, j2Rong     
+     
+   Licensed under the Apache License, Version 2.0 (the "License");     
+   you may not use this file except in compliance with the License.     
+   You may obtain a copy of the License at     
+     
+       http://www.apache.org/licenses/LICENSE-2.0     
+     
+   Unless required by applicable law or agreed to in writing, software     
+   distributed under the License is distributed on an "AS IS" BASIS,     
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.     
+   See the License for the specific language governing permissions and     
+   limitations under the License.   
+*/
+
 public class HeadsOff implements IXposedHookLoadPackage, IXposedHookZygoteInit {
 
-	
 	private static final String PACKAGE_NAME_SYSTEMUI = "com.android.systemui";
 	private static final String PACKAGE_NAME_HEADSOFF = HeadsOff.class.getPackage().getName();
 	private static final String LOG_TAG = "[" + PACKAGE_NAME_HEADSOFF + "]: ";
@@ -61,11 +57,13 @@ public class HeadsOff implements IXposedHookLoadPackage, IXposedHookZygoteInit {
 	private static final String HOOK_METHOD_shouldInterrupt = "shouldInterrupt";
 
 	public static XSharedPreferences prefs;
-	private static boolean bEnableLog = BuildConfig.SHOW_LOG;
+	private static boolean bEnableLog;
 
 	public static void loadPrefs() {
 		prefs = new XSharedPreferences(PACKAGE_NAME_HEADSOFF, SettingValues.PREF_FILE);
 		prefs.makeWorldReadable();
+		bEnableLog = prefs.getBoolean(SettingValues.KEY_ENABLE_LOG, BuildConfig.SHOW_LOG);
+		logAlways("loadPrefs: log status = " + bEnableLog);
 	}
 
 	protected static void log(String t) {
@@ -86,14 +84,12 @@ public class HeadsOff implements IXposedHookLoadPackage, IXposedHookZygoteInit {
 		if (prefs.hasFileChanged()) {
 			prefs.reload();
 			bEnableLog = prefs.getBoolean(SettingValues.KEY_ENABLE_LOG, BuildConfig.SHOW_LOG);
+		} else {
+			log("reloadPrefs: pref file has not changed");
 		}
 	}
 
-	/**
-	 * Called very early during startup of Zygote.
-	 *
-	 * @throws Throwable everything is caught, but will prevent further initialization of the module.
-	 */
+	
 	@Override
 	public void initZygote(StartupParam startupParam) throws Throwable {
 		loadPrefs();
@@ -133,13 +129,13 @@ public class HeadsOff implements IXposedHookLoadPackage, IXposedHookZygoteInit {
 
 			List<String> texts = new ArrayList<>();
 
-			CharSequence seq = extras.getCharSequence(Notification.EXTRA_TITLE);	// contentTitle
+			CharSequence seq = extras.getCharSequence(Notification.EXTRA_TITLE);	
 			if (seq != null)	texts.add(seq.toString());
-			seq = extras.getCharSequence(Notification.EXTRA_TEXT);					// contentText
+			seq = extras.getCharSequence(Notification.EXTRA_TEXT);					
 			if (seq != null)	texts.add(seq.toString());
-			seq = extras.getCharSequence(Notification.EXTRA_SUB_TEXT);				// subText
+			seq = extras.getCharSequence(Notification.EXTRA_SUB_TEXT);				
 			if (seq != null)	texts.add(seq.toString());
-			seq = extras.getCharSequence(Notification.EXTRA_INFO_TEXT);				// contentInfo
+			seq = extras.getCharSequence(Notification.EXTRA_INFO_TEXT);				
 			if (seq != null)	texts.add(seq.toString());
 
 			for (String str : texts) {
@@ -159,10 +155,9 @@ public class HeadsOff implements IXposedHookLoadPackage, IXposedHookZygoteInit {
 	@Override
 	public void handleLoadPackage(XC_LoadPackage.LoadPackageParam lpparam) throws Throwable {
 		if (lpparam.packageName.equals(PACKAGE_NAME_SYSTEMUI)) {
-			// in SystemUI
+			
 			try {
 				final int s = Build.VERSION.SDK_INT;
-				log(String.format(Locale.US, "version = %d", s));
 
 				XC_MethodHook m = new XC_MethodHook() {
 					@Override
@@ -174,6 +169,7 @@ public class HeadsOff implements IXposedHookLoadPackage, IXposedHookZygoteInit {
 						}
 
 						reloadPrefs();
+						log(String.format(Locale.US, "version = %d", s));
 
 						if (!isModEnabled()) {
 							log("HeadsOff not enabled, do nothing");
@@ -186,13 +182,13 @@ public class HeadsOff implements IXposedHookLoadPackage, IXposedHookZygoteInit {
 							return;
 						}
 
-						// StatusBarNotification n;
+
 						Object n = null;
 
 						if (s >= 21 && s <= 22) {
-							n = param.args[0];
+							n = param.args[0];  
 						} else if (s == 23) {
-							n = param.args[1];
+							n = param.args[1]; 
 						}
 
 						if (n == null && s == 23) {
@@ -215,7 +211,6 @@ public class HeadsOff implements IXposedHookLoadPackage, IXposedHookZygoteInit {
 									if (whiteList != null) {
 										for (String pattern : whiteList) {
 											if (match(notification, pattern)) {
-												// match pattern, do not change result, return directly
 												log(String.format(Locale.US, "match(pattern=%s)", pattern));
 												return;
 											}
@@ -232,7 +227,6 @@ public class HeadsOff implements IXposedHookLoadPackage, IXposedHookZygoteInit {
 							}
 
 						} else {
-							// should not go here
 							log("getting sbn object error, n = null");
 						}
 					}
@@ -241,7 +235,8 @@ public class HeadsOff implements IXposedHookLoadPackage, IXposedHookZygoteInit {
 				Class<?> classStatusBarNotification =
 						XposedHelpers.findClass(CLASS_NAME_StatusBarNotification, lpparam.classLoader);
 
-				if (s == 21 || s == 22) {
+				if (s >= 21 && s <= 22) {
+					//lollipop 5, 5.1
 					findAndHookMethod(CLASS_NAME_BaseStatusBar, lpparam.classLoader, HOOK_METHOD_shouldInterrupt,
 							classStatusBarNotification, m);
 				} else if (s == 23) {
@@ -258,7 +253,6 @@ public class HeadsOff implements IXposedHookLoadPackage, IXposedHookZygoteInit {
 
 		}
 
-		//in other package
 	}
 
 

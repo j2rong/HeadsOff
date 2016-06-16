@@ -30,7 +30,7 @@
             android:summaryOff="@string/settings_summary_off_show_system_app"/>
 
         <SwitchPreference
-            android:key="pref_enable_log"
+            android:key="pref_log"
             android:title="@string/settings_pref_title_enable_log"
             android:defaultValue="false"
             android:summaryOn="@string/settings_summary_on_enable_log"
