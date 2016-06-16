@@ -2,6 +2,8 @@
     <string name="app_name">HeadsOff</string>
     <string name="app_description">禁用悬挂式(Heads-up)通知</string>
     <string name="app_dev" translatable="false">j2Rong</string>
+    <string name="app_dev_repo_link" translatable="false">http://repo.xposed.info/users/j2rong</string>
+    <string name="app_github_link" translatable="false">https://github.com/j2rong/HeadsOff</string>
 
     <!-- Activity title -->
     <string name="title_activity_main" translatable="false">@string/app_name</string>
@@ -11,6 +13,8 @@
 
     <!-- Menu -->
     <string name="main_menu_settings">设置</string>
+    <string name="main_menu_search">搜索</string>
+    <string name="main_menu_search_hint">输入应用名或包名搜索</string>
     <string name="white_list_menu_help">如何使用？</string>
 
     <!-- Settings (General) -->
@@ -28,6 +32,21 @@
     <string name="settings_summary_on_show_system_apps">显示</string>
     <string name="settings_summary_off_show_system_apps">不显示</string>
 
+    <string name="settings_pref_title_package_added_op">新安装应用默认操作</string>
+    <string-array name="settings_package_added_op_entries">
+        <item>无</item>
+        <item>过滤</item>
+        <item>不过滤</item>
+    </string-array>
+    <string-array name="settings_package_added_op_entry_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>-1</item>
+    </string-array>
+
+    <!-- Settings (Feedback) -->
+    <string name="settings_cate_title_feedback">反馈</string>
+
     <string name="settings_pref_title_enable_log">日志</string>
     <string name="settings_summary_on_enable_log">开启</string>
     <string name="settings_summary_off_enable_log">关闭</string>
@@ -39,13 +58,15 @@
     <string name="settings_summary_open_source_license" translatable="false">Apache License 2.0\nCopyright © 2016–2017,&#160;&#160;j2Rong</string>
     <string name="settings_pref_title_developer">作者</string>
     <string name="settings_pref_title_version_name">版本</string>
-    <string name="settings_pref_title_download">下载地址</string>
+    <string name="settings_pref_title_other_modules">其他模块</string>
+
 
     <!-- Settings (Acknowledgements) -->
     <string name="settings_cate_title_ack">致谢</string>
 
-    <string name="settings_pref_title_ack_xposed">Xposed框架</string>
-    <string name="settings_summary_ack_xposed" translatable="false">rovo89, Tungstwenty</string>
+    <string name="settings_pref_title_ack_open_source_projects">开源项目</string>
+    <string name="settings_summary_ack_open_source_projects" translatable="false">Xposed Framework (rovo89, Tungstwenty)</string>
+
     <string name="settings_pref_title_ack_translation">翻译</string>
     <string name="settings_summary_ack_translation">点击查看</string>
 

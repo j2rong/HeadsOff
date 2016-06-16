@@ -16,6 +16,8 @@
 
     <!-- Menu -->
     <string name="main_menu_settings">Settings</string>
+    <string name="main_menu_search">Search</string>
+    <string name="main_menu_search_hint">Search app name or package name</string>
     <string name="white_list_menu_help">How to Use?</string>
 
 
@@ -34,6 +36,16 @@
     <string name="settings_summary_on_show_system_apps">Show</string>
     <string name="settings_summary_off_show_system_apps">Don\'t show</string>
 
+    <string name="settings_pref_title_package_added_op">Newly Installed App</string>
+    <string-array name="settings_package_added_op_entries">
+        <item>Do nothing</item>
+        <item>Enable filtering</item>
+        <item>Disable filtering</item>
+    </string-array>
+
+    <!-- Settings (Feedback) -->
+    <string name="settings_cate_title_feedback">Feedback</string>
+
     <string name="settings_pref_title_enable_log">Log</string>
     <string name="settings_summary_off_enable_log">Disabled</string>
     <string name="settings_summary_on_enable_log">Enabled</string>
@@ -45,13 +57,12 @@
     <string name="settings_pref_title_open_source_license">Open Source</string>
     <string name="settings_pref_title_developer">Developer</string>
     <string name="settings_pref_title_version_name">Version</string>
-    <string name="settings_pref_title_download">Download</string>
-
+	<string name="settings_pref_title_other_modules">Other modules</string>
 
     <!-- Settings (Acknowledgements) -->
-    <string name="settings_cate_title_ack">Acknowledgment</string>
+    <string name="settings_cate_title_ack">Credits</string>
 
-    <string name="settings_pref_title_ack_xposed">Xposed Framework</string>
+    <string name="settings_pref_title_ack_open_source_projects">Open source projects</string>
 
     <string name="settings_pref_title_ack_translation">Translation</string>
     <string name="settings_summary_ack_translation">Show details</string>
@@ -99,6 +110,7 @@
     <string name="white_list_help_content_text">Content text</string>
     <string name="white_list_help_content_info">Content info</string>
     <string name="white_list_help_sub_text">Sub text</string>
+    
 
 
 </resources>
