@@ -42,6 +42,17 @@
 
 ##更新日志 (Changelogs)
 
+- **0.6.102**
+
+  ```
+  [UI]     
+    新增应用搜索      
+    新增应用全选      
+  [功能]      
+    新安装应用默认操作       
+  ```
+
+
 - **0.5.78**
 
   ```
@@ -151,6 +162,15 @@
 <br/>
 
 - **Changelog**
+
+  - **0.6.102**
+    ```
+	[UI]      
+	  Add app search      
+	  Add toggle for all apps      
+	[Feature]      
+	  Default operation for newly installed app      
+	```
 
   - **0.5.78**
     ```
