@@ -1,5 +1,6 @@
 package com.rong.xposed.headsoff;
 
+
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
@@ -14,6 +15,7 @@ import android.support.v4.app.NavUtils;
 import android.support.v7.app.ActionBar;
 import android.view.MenuItem;
 
+import com.rong.xposed.headsoff.utils.AppUtils;
 import com.rong.xposed.headsoff.utils.SettingValues;
 
 /**
@@ -35,6 +37,7 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		AppUtils.updateConfiguration(this);
 		setupActionBar();
 
 		getFragmentManager().beginTransaction()
@@ -116,7 +119,7 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
 		public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
 			String key = preference.getKey();
 			switch (key) {
-				case SettingValues.KEY_PREF_AUTHOR:
+				case SettingValues.KEY_PREF_DEVELOPER:
 					openWebPage("https://github.com/j2rong");
 					return true;
 				case SettingValues.KEY_PREF_DOWNLOAD:

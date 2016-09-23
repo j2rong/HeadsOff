@@ -46,9 +46,9 @@ dependencies {
 }
 
 def get_version_code() {
-    return 62;
+    return 78;
 }
 
 def get_version_name() {
-    return "0.4.62";
+    return "0.5.78";
 }

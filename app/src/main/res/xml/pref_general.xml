@@ -9,25 +9,25 @@
 
         <SwitchPreference
             android:key="pref_mod_active"
-            android:title="@string/settings_pref_title_mod_active"
+            android:title="@string/settings_pref_title_mod_status"
             android:defaultValue="false"
-            android:summaryOn="@string/settings_summary_on_mod_active"
-            android:summaryOff="@string/settings_summary_off_mod_active"/>
+            android:summaryOn="@string/settings_summary_on_mod_status"
+            android:summaryOff="@string/settings_summary_off_mod_status"/>
 
         <com.rong.xposed.headsoff.widget.SwitchPreferenceMultiLine
             android:key="pref_global_enable"
-            android:title="@string/settings_pref_title_global_enable"
-            android:summaryOn="@string/settings_summary_on_global_enable"
-            android:summaryOff="@string/settings_summary_off_global_enable"
+            android:title="@string/settings_pref_title_global_switch"
+            android:summaryOn="@string/settings_summary_on_global_switch"
+            android:summaryOff="@string/settings_summary_off_global_switch"
             android:defaultValue="false"
             tools:defaultValue="true"/>
 
         <SwitchPreference
             android:key="pref_show_system_app"
-            android:title="@string/settings_pref_title_show_system_app"
+            android:title="@string/settings_pref_title_show_system_apps"
             android:defaultValue="false"
-            android:summaryOn="@string/settings_summary_on_show_system_app"
-            android:summaryOff="@string/settings_summary_off_show_system_app"/>
+            android:summaryOn="@string/settings_summary_on_show_system_apps"
+            android:summaryOff="@string/settings_summary_off_show_system_apps"/>
 
         <SwitchPreference
             android:key="pref_log"
@@ -38,12 +38,12 @@
 
     </PreferenceCategory>
 
-    <PreferenceCategory android:title="@string/settings_cate_title_thanks">
+    <PreferenceCategory android:title="@string/settings_cate_title_ack">
 
         <Preference
             android:key="pref_thanks_to_xposed"
-            android:title="@string/settings_pref_title_thanks_to_xposed"
-            android:summary="@string/settings_summary_thanks_to_xposed"/>
+            android:title="@string/settings_pref_title_ack_xposed"
+            android:summary="@string/settings_summary_ack_xposed"/>
 
     </PreferenceCategory>
 
@@ -54,9 +54,9 @@
             android:title="@string/settings_pref_title_download"/>
 
         <Preference
-            android:key="pref_author"
-            android:title="@string/settings_pref_title_author"
-            android:summary="@string/app_author"/>
+            android:key="pref_dev"
+            android:title="@string/settings_pref_title_developer"
+            android:summary="@string/app_dev"/>
 
         <Preference
             android:key="pref_version_name"

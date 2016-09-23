@@ -1,13 +1,18 @@
 package com.rong.xposed.headsoff;
 
 import android.annotation.SuppressLint;
+import android.app.Notification;
+import android.app.NotificationManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.NavUtils;
+import android.support.v4.app.NotificationCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
@@ -18,7 +23,9 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -30,12 +37,14 @@ import android.widget.Toast;
 import com.rong.lib.utils.HtmlString;
 import com.rong.xposed.headsoff.adapter.PackageListItemDivider;
 import com.rong.xposed.headsoff.adapter.WhiteListAdapter;
+import com.rong.xposed.headsoff.utils.AppUtils;
 import com.rong.xposed.headsoff.utils.SettingValues;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 
@@ -62,6 +71,8 @@ public class PerAppWhiteList extends AppCompatActivity implements
 	private List<String> mList = null;
 	private AppCompatEditText edtRegex;
 	private AppCompatButton btnAdd;
+	private AppCompatEditText testEdit;
+	private TextView txtHint;
 
 	private void setupActionBar() {
 		ActionBar actionBar = getSupportActionBar();
@@ -72,6 +83,8 @@ public class PerAppWhiteList extends AppCompatActivity implements
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		AppUtils.updateConfiguration(this);
+
 		setContentView(R.layout.activity_per_app_white_list);
 
 		Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -85,10 +98,11 @@ public class PerAppWhiteList extends AppCompatActivity implements
 		}
 
 		if (TextUtils.isEmpty(packageName)) {
-			//should not be empty
 			Toast.makeText(this, R.string.white_list_package_name_is_empty, Toast.LENGTH_LONG).show();
 			finish();
 		}
+
+		txtHint = (TextView) findViewById(R.id.empty_hint);
 
 		RecyclerView list = (RecyclerView) findViewById(R.id.regex_list);
 		RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
@@ -105,6 +119,7 @@ public class PerAppWhiteList extends AppCompatActivity implements
 				mList = getWhiteList(packageName);
 				mAdapter.setItemList(mList);
 				mAdapter.notifyDataSetChanged();
+				checkShowEmptyListHint();
 			}
 		}, 50);
 
@@ -113,6 +128,68 @@ public class PerAppWhiteList extends AppCompatActivity implements
 
 		btnAdd = (AppCompatButton) findViewById(R.id.btn_add);
 		btnAdd.setOnClickListener(this);
+
+		final TextInputLayout testLayout = (TextInputLayout) findViewById(R.id.test_layout);
+		testEdit = (AppCompatEditText) findViewById(R.id.test_regex);
+		testEdit.addTextChangedListener(new TextWatcher() {
+			@Override
+			public void afterTextChanged(Editable s) {
+				String pattern = edtRegex.getText().toString();
+				String test = testEdit.getText().toString();
+				String defaultHint = getString(R.string.white_list_edit_test_hint);
+
+				if (TextUtils.isEmpty(test)) {
+					testLayout.setError(null);
+					testLayout.setHint(defaultHint);
+					return;
+				}
+
+				if (TextUtils.isEmpty(pattern)) {
+					testLayout.setError(getString(R.string.white_list_regex_test_empty_pattern));
+					testLayout.setHint(defaultHint);
+					return;
+				}
+
+				if (!isRegexValid(pattern)) {
+					testLayout.setError(getString(R.string.white_list_regex_test_invalid_pattern));
+					testLayout.setHint(defaultHint);
+					return;    // not a valid regex
+				}
+
+				//start check
+				try {
+					Pattern regex = Pattern.compile(pattern);
+					Matcher matcher = regex.matcher(test);
+					if (matcher.find()) {
+						testLayout.setError(null);
+						testLayout.setHint(getString(R.string.white_list_regex_test_match));
+					} else {
+						testLayout.setError(getString(R.string.white_list_regex_test_not_match));
+						testLayout.setHint(defaultHint);
+					}
+				} catch (Exception e) {
+					testLayout.setError(getString(R.string.white_list_regex_test_error_unknown));
+					testLayout.setError(defaultHint);
+				}
+			}
+
+			@Override
+			public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+			@Override
+			public void onTextChanged(CharSequence s, int start, int before, int count) {}
+		});
+
+
+	}
+
+	private void checkShowEmptyListHint() {
+		int count = mAdapter.getItemCount();
+		if (count == 0) {
+			txtHint.setVisibility(View.VISIBLE);
+		} else {
+			txtHint.setVisibility(View.GONE);
+		}
 	}
 
 	private boolean checkIfExists(String pattern) {
@@ -160,6 +237,7 @@ public class PerAppWhiteList extends AppCompatActivity implements
 					editor.apply();
 
 					mAdapter.notifyDataSetChanged();
+					checkShowEmptyListHint();
 					Toast.makeText(this, R.string.white_list_add_success, Toast.LENGTH_LONG).show();
 				} else {
 					Toast.makeText(this,
@@ -173,13 +251,17 @@ public class PerAppWhiteList extends AppCompatActivity implements
 
 			if (bClear) {
 				edtRegex.setText("");
+				testEdit.setText("");
+
+				if (testEdit.hasFocus())
+					testEdit.clearFocus();
 			}
 		}
 	}
 
 	@Override
 	public void onRegexRemove(int position) {
-
+		checkShowEmptyListHint();
 	}
 
 	@SuppressWarnings("ResultOfMethodCallIgnored")
@@ -241,29 +323,48 @@ public class PerAppWhiteList extends AppCompatActivity implements
 		HtmlString msg = new HtmlString();
 		int titleColor = ContextCompat.getColor(this, R.color.colorPrimaryDark);
 
-		msg.nl();
-		msg.color(getString(R.string.white_list_help_title_1), titleColor);
-		msg.append("(").append(getString(R.string.white_list_exceeded_limitation, SettingValues.WHITE_LIST_MAX));
-		msg.append(")").nl();
-		msg.append(getString(R.string.white_list_help_1_1)).nl();
-		msg.blank(4).bold(getString(R.string.white_list_help_1_2)).nl();
-		msg.blank(8).append(getString(R.string.white_list_help_1_3_1)).nl();
-		msg.blank(8).append(getString(R.string.white_list_help_1_3_2)).nl();
-		msg.blank(8).append(getString(R.string.white_list_help_1_3_3)).nl();
-		msg.blank(8).append(getString(R.string.white_list_help_1_3_4)).nl().nl();
-		msg.append(getString(R.string.white_list_help_1_4)).nl().nl();
+		String dot = getString(R.string.white_list_help_dot);
 
-		AlertDialog dialog = new AlertDialog.Builder(this, R.style.AppTheme_AlertDialogStyle)
+		msg.nl();
+		msg.color(getString(R.string.white_list_help_matching_rules), titleColor);
+		msg.append(" (").append(getString(R.string.white_list_exceeded_limitation, SettingValues.WHITE_LIST_MAX));
+		msg.append(")").nl().nl();
+		msg.bold(dot).blank(2).append(getString(R.string.white_list_help_not_filtered_if_matching_rules)).nl();
+		msg.bold(dot).blank(2).append(getString(R.string.white_list_help_ignore_if_not_heads_up_originally)).nl().nl();
+
+		msg.color(getString(R.string.white_list_help_matching_entries), titleColor).nl().nl();
+		msg.bold(dot).blank(2).append(getString(R.string.white_list_help_content_title)).nl();
+		msg.bold(dot).blank(2).append(getString(R.string.white_list_help_content_text)).nl();
+		msg.bold(dot).blank(2).append(getString(R.string.white_list_help_content_info)).nl();
+		msg.bold(dot).blank(2).append(getString(R.string.white_list_help_sub_text)).nl().nl();
+
+		final AlertDialog dialog = new AlertDialog.Builder(this, R.style.AppTheme_AlertDialogStyle)
 				.setTitle(R.string.white_list_help_title)
 				.setMessage(msg.fromHtml())
-				.setPositiveButton(R.string.white_list_help_ok, new DialogInterface.OnClickListener() {
+				.setPositiveButton(R.string.white_list_help_btn_ok, new DialogInterface.OnClickListener() {
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
 						dialog.dismiss();
 					}
 				})
+				.setNegativeButton(getString(R.string.white_list_help_btn_example), null)
 				.create();
 		dialog.show();
+		dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Notification n = new NotificationCompat.Builder(PerAppWhiteList.this)
+						.setContentTitle(getString(R.string.white_list_help_content_title))
+						.setContentText(getString(R.string.white_list_help_content_text))
+						.setContentInfo(getString(R.string.white_list_help_content_info))
+						.setSubText(getString(R.string.white_list_help_sub_text))
+						.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher))
+						.setSmallIcon(R.drawable.ic_notification)
+						.build();
+				NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+				nm.notify(1, n);
+			}
+		});
 	}
 
 	@Override

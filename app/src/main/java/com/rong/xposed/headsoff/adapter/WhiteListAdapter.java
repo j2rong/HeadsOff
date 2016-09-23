@@ -86,9 +86,11 @@ public class WhiteListAdapter extends RecyclerView.Adapter<WhiteListAdapter.View
 		String key;
 		int newCount = getItemCount() - 1;
 
+
 		key = packageName + SettingValues.KEY_SUFFIX_WHITELIST_COUNT;
 		editor.putInt(key, newCount);
 		editor.apply();
+
 
 		Set<String> newList = new HashSet<>();
 		for (int i = 0; i <= newCount; i++) {

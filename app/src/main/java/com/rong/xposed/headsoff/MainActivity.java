@@ -20,6 +20,7 @@ import com.rong.xposed.headsoff.adapter.PackageListAdapter;
 import com.rong.xposed.headsoff.adapter.PackageListItemDivider;
 import com.rong.xposed.headsoff.utils.AppUtils;
 import com.rong.xposed.headsoff.utils.SettingValues;
+import com.rong.xposed.headsoff.x.XUtil;
 
 import java.util.List;
 import java.util.Map;
@@ -53,6 +54,7 @@ public class MainActivity extends AppCompatActivity implements
 	@SuppressWarnings("deprecation")
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		AppUtils.updateConfiguration(this);
 		setContentView(R.layout.activity_main);
 		Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 		setSupportActionBar(toolbar);
