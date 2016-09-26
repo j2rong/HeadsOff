@@ -23,7 +23,8 @@
 ##屏幕截图 (Screenshots)
 
 <p align="center">
-<img src="https://github.com/j2rong/HeadsOff/blob/master/screenshot/0.6.101/settings-en-2016-06-26-182449.png" width="216"></a>
+<img src="https://github.com/j2rong/HeadsOff/blob/master/screenshot/0.5.83/main-2016-05-04-134031.png" width="216"></a>
+<img src="https://github.com/j2rong/HeadsOff/blob/master/screenshot/0.5.83/settings-2016-05-04-143249.png" width="216"></a>
 <img src="https://github.com/j2rong/HeadsOff/blob/master/screenshot/0.5.83/white-list-2016-05-04-143309.png" width="216"></a>
 <img src="https://github.com/j2rong/HeadsOff/blob/master/screenshot/0.5.83/how-to-2016-05-04-143323.png" width="216"></a>
 </p>
@@ -41,10 +42,11 @@
 
 ##更新日志 (Changelogs)
 
-- **0.7.111**
+- **0.7.115**
 
   ```
   优化白名单执行效率
+  修复白名单列表显示
   ```
 
 
@@ -172,6 +174,7 @@
   - **0.7.111**
     ```
 	Improve efficiency of whitelist
+	Fix the layout of whitelist regex rules list
 	```
 
   - **0.6.102**
